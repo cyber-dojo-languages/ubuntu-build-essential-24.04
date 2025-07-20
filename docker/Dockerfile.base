@@ -1,0 +1,6 @@
+FROM ubuntu:24.04
+LABEL maintainer=jon@jaggersoft.com
+
+RUN apt-get install --yes \
+    build-essential \
+    automake
