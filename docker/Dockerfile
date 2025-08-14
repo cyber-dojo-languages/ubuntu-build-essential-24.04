@@ -5,6 +5,7 @@ FROM ubuntu:24.04
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # START of extra commands to fulfil runner's requirements (os=Ubuntu)
+RUN command -v adduser || (apt-get update && apt-get install adduser)
 RUN (getent group sandbox) || (addgroup --gid 51966 sandbox)
 RUN (grep -q sandbox:x:41966 /etc/passwd) || (adduser --disabled-password --gecos "" --home /home/sandbox --ingroup sandbox --shell /bin/bash --uid 41966 sandbox)
 RUN apt-get update && apt-get install --yes coreutils bash tar file
